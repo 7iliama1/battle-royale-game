@@ -1,0 +1,357 @@
+/**
+ * Main Application Styles
+ * 
+ * This file contains the global styles for the Battle Royale Game landing page.
+ * It includes the base layout, typography, and shared component styles.
+ * 
+ * Structure:
+ * 1. CSS Custom Properties (Design System)
+ * 2. Base Reset and Typography
+ * 3. Layout Components
+ * 4. Utility Classes
+ * 5. Responsive Breakpoints
+ */
+
+/* ==========================================
+   1. CSS Custom Properties (Design System)
+   ========================================== */
+
+:root {
+  /* Primary Brand Colors */
+  --primary-orange: #FF6B35;
+  --primary-gold: #FFB347;
+  --accent-yellow: #FFC947;
+  
+  /* Dark Theme Background Colors */
+  --bg-dark-primary: #0A0A0A;
+  --bg-dark-secondary: #1A1A1A;
+  --bg-dark-tertiary: #2A2A2A;
+  --bg-dark-overlay: rgba(0, 0, 0, 0.8);
+  
+  /* Text Colors */
+  --text-primary: #FFFFFF;
+  --text-secondary: #CCCCCC;
+  --text-muted: #999999;
+  --text-accent: var(--primary-orange);
+  
+  /* Interactive Element Colors */
+  --button-primary: var(--primary-orange);
+  --button-primary-hover: #E55A2B;
+  --button-secondary: var(--primary-gold);
+  --button-secondary-hover: #E6A03D;
+  
+  /* Status Colors */
+  --success: #00FF88;
+  --warning: var(--primary-gold);
+  --error: #FF4757;
+  --info: #3742FA;
+  
+  /* Spacing System (8px base) */
+  --space-xs: 0.5rem;   /* 8px */
+  --space-sm: 1rem;     /* 16px */
+  --space-md: 1.5rem;   /* 24px */
+  --space-lg: 2rem;     /* 32px */
+  --space-xl: 3rem;     /* 48px */
+  --space-xxl: 4rem;    /* 64px */
+  --space-xxxl: 6rem;   /* 96px */
+  
+  /* Typography Scale */
+  --font-size-xs: 0.75rem;    /* 12px */
+  --font-size-sm: 0.875rem;   /* 14px */
+  --font-size-base: 1rem;     /* 16px */
+  --font-size-lg: 1.125rem;   /* 18px */
+  --font-size-xl: 1.25rem;    /* 20px */
+  --font-size-2xl: 1.5rem;    /* 24px */
+  --font-size-3xl: 1.875rem;  /* 30px */
+  --font-size-4xl: 2.25rem;   /* 36px */
+  --font-size-5xl: 3rem;      /* 48px */
+  --font-size-6xl: 4rem;      /* 64px */
+  
+  /* Font Weights */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+  
+  /* Line Heights */
+  --line-height-tight: 1.25;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.75;
+  
+  /* Border Radius */
+  --border-radius-sm: 0.25rem;   /* 4px */
+  --border-radius-md: 0.5rem;    /* 8px */
+  --border-radius-lg: 0.75rem;   /* 12px */
+  --border-radius-xl: 1rem;      /* 16px */
+  
+  /* Shadows */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.15);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.2);
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease-in-out;
+  --transition-normal: 0.3s ease-in-out;
+  --transition-slow: 0.5s ease-in-out;
+  
+  /* Z-Index Scale */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+}
+
+/* ==========================================
+   2. Base Reset and Typography
+   ========================================== */
+
+/* Modern CSS Reset */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Root element configuration */
+html {
+  /* Enable smooth scrolling for navigation links */
+  scroll-behavior: smooth;
+  /* Prevent horizontal scroll on smaller screens */
+  overflow-x: hidden;
+}
+
+/* Body base styles */
+body {
+  /* Dark theme background */
+  background-color: var(--bg-dark-primary);
+  color: var(--text-primary);
+  
+  /* Typography */
+  font-family: 'Roboto', 'Segoe UI', 'Tahoma', 'Geneva', 'Verdana', sans-serif;
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-normal);
+  line-height: var(--line-height-normal);
+  
+  /* Smooth font rendering */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  
+  /* Prevent horizontal overflow */
+  overflow-x: hidden;
+}
+
+/* Headings base styles */
+h1, h2, h3, h4, h5, h6 {
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+  margin-bottom: var(--space-md);
+  color: var(--text-primary);
+}
+
+h1 {
+  font-size: var(--font-size-6xl);
+  font-weight: var(--font-weight-extrabold);
+}
+
+h2 {
+  font-size: var(--font-size-5xl);
+  font-weight: var(--font-weight-bold);
+}
+
+h3 {
+  font-size: var(--font-size-4xl);
+}
+
+h4 {
+  font-size: var(--font-size-3xl);
+}
+
+h5 {
+  font-size: var(--font-size-2xl);
+}
+
+h6 {
+  font-size: var(--font-size-xl);
+}
+
+/* Paragraph styles */
+p {
+  margin-bottom: var(--space-md);
+  color: var(--text-secondary);
+  line-height: var(--line-height-relaxed);
+}
+
+/* Link styles */
+a {
+  color: var(--text-accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover,
+a:focus {
+  color: var(--button-primary-hover);
+  outline: none;
+}
+
+/* List styles */
+ul, ol {
+  margin-bottom: var(--space-md);
+  padding-left: var(--space-lg);
+}
+
+li {
+  margin-bottom: var(--space-xs);
+}
+
+/* ==========================================
+   3. Layout Components
+   ========================================== */
+
+/* Main application container */
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--bg-dark-primary);
+}
+
+/* Main content area */
+.main-content {
+  flex: 1;
+  /* Ensure content starts below fixed header */
+  margin-top: 0;
+}
+
+/* Section base styles */
+section {
+  position: relative;
+  padding: var(--space-xxxl) 0;
+  overflow: hidden;
+}
+
+/* Container for centered content */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  width: 100%;
+}
+
+/* Wide container for full-width sections */
+.container-wide {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+  width: 100%;
+}
+
+/* ==========================================
+   4. Utility Classes
+   ========================================== */
+
+/* Text alignment utilities */
+.text-left { text-align: left; }
+.text-center { text-align: center; }
+.text-right { text-align: right; }
+
+/* Display utilities */
+.d-none { display: none; }
+.d-block { display: block; }
+.d-flex { display: flex; }
+.d-grid { display: grid; }
+
+/* Flexbox utilities */
+.flex-column { flex-direction: column; }
+.flex-row { flex-direction: row; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.align-center { align-items: center; }
+.align-start { align-items: flex-start; }
+.align-end { align-items: flex-end; }
+
+/* Spacing utilities */
+.mb-0 { margin-bottom: 0; }
+.mb-1 { margin-bottom: var(--space-xs); }
+.mb-2 { margin-bottom: var(--space-sm); }
+.mb-3 { margin-bottom: var(--space-md); }
+.mb-4 { margin-bottom: var(--space-lg); }
+.mb-5 { margin-bottom: var(--space-xl); }
+
+/* Visibility utilities for accessibility */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================
+   5. Responsive Breakpoints
+   ========================================== */
+
+/* Mobile devices (up to 768px) */
+@media (max-width: 767px) {
+  .container,
+  .container-wide {
+    padding: 0 var(--space-md);
+  }
+  
+  section {
+    padding: var(--space-xl) 0;
+  }
+  
+  h1 {
+    font-size: var(--font-size-4xl);
+  }
+  
+  h2 {
+    font-size: var(--font-size-3xl);
+  }
+  
+  h3 {
+    font-size: var(--font-size-2xl);
+  }
+}
+
+/* Tablet devices (768px to 1023px) */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .container {
+    max-width: 750px;
+  }
+  
+  .container-wide {
+    max-width: 1000px;
+  }
+}
+
+/* Desktop devices (1024px and up) */
+@media (min-width: 1024px) {
+  section {
+    padding: var(--space-xxxl) 0;
+  }
+}
+
+/* Large desktop devices (1440px and up) */
+@media (min-width: 1440px) {
+  .container {
+    max-width: 1300px;
+  }
+  
+  .container-wide {
+    max-width: 1600px;
+  }
+}

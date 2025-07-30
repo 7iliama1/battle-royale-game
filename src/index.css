@@ -1,0 +1,186 @@
+/**
+ * Global Styles and Font Imports
+ * 
+ * This file contains global styles that apply to the entire application.
+ * It includes font imports, CSS reset, and base element styling.
+ * 
+ * Structure:
+ * 1. Font Imports
+ * 2. Global Reset
+ * 3. Base Element Styles
+ * 4. Accessibility Improvements
+ */
+
+/* ==========================================
+   1. Font Imports
+   ========================================== */
+
+/* Import Google Fonts for consistent typography */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&display=swap');
+
+/* Import gaming-style font for headings (if available) */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&display=swap');
+
+/* ==========================================
+   2. Global Reset
+   ========================================== */
+
+/* Modern CSS Reset - removes default browser styling */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* ==========================================
+   3. Base Element Styles
+   ========================================== */
+
+/* HTML and body base configuration */
+html {
+  height: 100%;
+  /* Prevent text size adjust on mobile devices */
+  -webkit-text-size-adjust: 100%;
+  -moz-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  height: 100%;
+  /* Improve text rendering */
+  text-rendering: optimizeSpeed;
+  /* Prevent font inflation on mobile */
+  -webkit-text-size-adjust: 100%;
+}
+
+/* Root element for React app */
+#root {
+  height: 100%;
+  min-height: 100vh;
+}
+
+/* Remove default button styles */
+button {
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+}
+
+/* Remove default input styles */
+input,
+textarea,
+select {
+  font-family: inherit;
+  font-size: inherit;
+  color: inherit;
+  background: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Remove default list styles */
+ul,
+ol {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* Remove default table styles */
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+/* Remove default fieldset styles */
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0;
+}
+
+/* ==========================================
+   4. Accessibility Improvements
+   ========================================== */
+
+/* Improve focus visibility for keyboard navigation */
+*:focus {
+  outline: 2px solid #FF6B35;
+  outline-offset: 2px;
+}
+
+/* Remove focus outline for mouse users only */
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Ensure focus is visible for keyboard users */
+*:focus-visible {
+  outline: 2px solid #FF6B35;
+  outline-offset: 2px;
+}
+
+/* Improve button accessibility */
+button:focus-visible {
+  outline: 2px solid #FF6B35;
+  outline-offset: 2px;
+}
+
+/* Improve link accessibility */
+a:focus-visible {
+  outline: 2px solid #FF6B35;
+  outline-offset: 2px;
+}
+
+/* Screen reader only content */
+.sr-only {
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  padding: 0 !important;
+  margin: -1px !important;
+  overflow: hidden !important;
+  clip: rect(0, 0, 0, 0) !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+}
+
+/* Reduce motion for users who prefer it */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  :root {
+    --primary-orange: #FF8C00;
+    --primary-gold: #FFD700;
+    --text-primary: #FFFFFF;
+    --text-secondary: #E0E0E0;
+    --bg-dark-primary: #000000;
+    --bg-dark-secondary: #111111;
+  }
+}
