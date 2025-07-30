@@ -7,8 +7,9 @@
  * Features:
  * - Language context provider for internationalization
  * - Smooth scrolling navigation
- * - Progressive loading of sections
- * - SEO optimization with React Helmet
+ * - Complete landing page sections
+ * - SEO optimization structure
+ * - Responsive design
  */
 
 import React from 'react';
@@ -25,7 +26,6 @@ import Footer from './components/Layout/Footer';
 import Hero from './components/Sections/Hero';
 import GameStory from './components/Sections/GameStory';
 import GameFeatures from './components/Sections/GameFeatures';
-import GameScreenshots from './components/Sections/GameScreenshots';
 import SystemRequirements from './components/Sections/SystemRequirements';
 import PressReviews from './components/Sections/PressReviews';
 import NewsletterSignup from './components/Sections/NewsletterSignup';
@@ -57,22 +57,19 @@ const App: React.FC = () => {
           {/* Hero section with game trailer and main CTA */}
           <Hero />
           
-          {/* Game story and description */}
+          {/* Game story and description with screenshot slider */}
           <GameStory />
           
-          {/* Key features and gameplay mechanics */}
+          {/* Key features and gameplay mechanics with character showcase */}
           <GameFeatures />
           
-          {/* Screenshot gallery with interactive slider */}
-          <GameScreenshots />
-          
-          {/* Technical specifications */}
+          {/* Technical specifications in table format */}
           <SystemRequirements />
           
-          {/* Press reviews and testimonials */}
+          {/* Press reviews and testimonials with reviewer cards */}
           <PressReviews />
           
-          {/* Newsletter subscription form */}
+          {/* Newsletter subscription form with 3D artifacts */}
           <NewsletterSignup />
         </main>
         
